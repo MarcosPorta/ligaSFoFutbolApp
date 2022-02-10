@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LigaSfoFutbol">
         <activity
+            android:name=".PosicionesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PartidosActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
