@@ -2,7 +2,6 @@ package com.marcosporta.ligasfofutbol
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 
@@ -32,5 +31,7 @@ class PosicionesActivity : AppCompatActivity() {
             // Apply the adapter to the spinner
             spinner2.adapter = adapter
         }
+
+
     }
 }
