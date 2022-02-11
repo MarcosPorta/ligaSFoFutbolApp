@@ -6,4 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".PosicionesActivity">
 
+    <TableRow
+        android:id="@+id/trPos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Spinner
+            android:id="@+id/sp_categoriaPos"
+            android:layout_width="200dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"
+            android:spinnerMode="dropdown"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/sp_zonaPos"
+            android:layout_width="200dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"
+            android:spinnerMode="dropdown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </TableRow>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trPos">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

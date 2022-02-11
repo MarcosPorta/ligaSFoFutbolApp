@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">ligaSfoFutbol</string>
+    <string-array name="categorias">
+        <item>Primera</item>
+        <item>Reserva</item>
+        <item>Juvenil</item>
+        <item>Prejuvenil</item>
+        <item>Infantil</item>
+        <item>Preinfantil</item>
+        <item>Promocional</item>
+    </string-array>
+
+    <string-array name="zonas">
+        <item>Norte</item>
+        <item>Noroeste</item>
+        <item>Sur</item>
+        <item>Oeste</item>
+        <item>Centro</item>
+    </string-array>
 </resources>
