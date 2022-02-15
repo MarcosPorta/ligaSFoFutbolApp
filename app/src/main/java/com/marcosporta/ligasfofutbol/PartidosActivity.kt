@@ -10,6 +10,10 @@ class PartidosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_partidos)
 
+        //Poner boton regresar y titulo en el Action Bar
+        supportActionBar?.title = "Partidos"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         val spinner: Spinner= findViewById(R.id.sp_fechaPart)
 
         ArrayAdapter.createFromResource(this,R.array.fechas,

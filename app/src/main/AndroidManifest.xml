@@ -11,13 +11,18 @@
         android:theme="@style/Theme.LigaSfoFutbol">
         <activity
             android:name=".PosicionesActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="fullSensor"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".PartidosActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="fullSensor"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

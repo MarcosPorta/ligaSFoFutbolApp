@@ -10,6 +10,10 @@ class PosicionesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_posiciones)
 
+        //Poner boton regresar y titulo en el Action Bar
+        supportActionBar?.title = "Posiciones"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         val spinner: Spinner = findViewById(R.id.sp_categoriaPos)
 
         ArrayAdapter.createFromResource(this,R.array.categorias,
