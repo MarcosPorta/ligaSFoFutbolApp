@@ -4,11 +4,30 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.RequestConfiguration
+import java.util.*
 
 class PartidosActivity : AppCompatActivity() {
+
+    lateinit var mAdView : AdView
+    val testId= Arrays.asList("572A1A67BA6623DBD9D945D4043174CB")
+    val configuracion= RequestConfiguration.Builder().setTestDeviceIds(testId).build()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_partidos)
+
+        MobileAds.setRequestConfiguration(configuracion)
+        RequestConfiguration.Builder().setTestDeviceIds(testId)
+        MobileAds.initialize(this) {}
+
+        //Banner
+        mAdView = findViewById(R.id.bannerPartidos)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
 
         //Poner boton regresar y titulo en el Action Bar
         supportActionBar?.title = "Partidos"
