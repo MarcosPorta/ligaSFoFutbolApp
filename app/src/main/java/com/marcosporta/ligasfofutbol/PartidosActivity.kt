@@ -51,19 +51,37 @@ class PartidosActivity : AppCompatActivity() {
                 try {
                     var jsonArray = response.getJSONArray("data")
                     var cont = 0
+                    var cont2 = ""
                     for(i in 0 until jsonArray.length() ){
                         var jsonObject=jsonArray.getJSONObject(i)
 
                         //Accediendo a un campo de la base de datos (fecha)
-                        val contFecha = jsonObject.getInt("fecha")
+                        val fecha = jsonObject.getInt("fecha")
+                        val diaHora = jsonObject.getString("diahora")
 
-                        if (contFecha !== cont){
-                            println("MIRAR ACA ---->>>>>>>>   $contFecha y $cont")
+                        if (fecha != cont && diaHora != cont2){
+                            println("MIRAR ACA ------------> $diaHora y $cont2")
                             val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha, null, false)
                             val colNumeroFecha=registro2.findViewById<View>(R.id.colNumeroFecha) as TextView
-                            colNumeroFecha.text=getString(R.string.fecha_para_temp_regular,contFecha)
+                            val colDiaHora=registro2.findViewById<View>(R.id.colDiaHora) as TextView
+                            colNumeroFecha.text=getString(R.string.fecha_para_temp_regular,fecha)
+                            colDiaHora.text=jsonObject.getString("diahora")
                             tbFixture?.addView(registro2)
                             cont += 1
+                            cont2 = diaHora
+                        } else if (fecha != cont){
+                            println("MIRAR ACA ---->>>>>>>>   $fecha y $cont")
+                            val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha, null, false)
+                            val colNumeroFecha=registro2.findViewById<View>(R.id.colNumeroFecha) as TextView
+                            colNumeroFecha.text=getString(R.string.fecha_para_temp_regular,fecha)
+                            tbFixture?.addView(registro2)
+                            cont += 1
+                        } else if (diaHora != cont2){
+                            val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha, null, false)
+                            val colDiaHora=registro2.findViewById<View>(R.id.colDiaHora) as TextView
+                            colDiaHora.text=jsonObject.getString("diahora")
+                            tbFixture?.addView(registro2)
+                            cont2 = diaHora
                         }
 
                         val registro=LayoutInflater.from(this).inflate(R.layout.table_row_fixture,null,false)
