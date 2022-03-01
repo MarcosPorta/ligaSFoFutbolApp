@@ -16,7 +16,7 @@
         android:textColor="#FFFFFF" />
 
     <TextView
-        android:id="@+id/colPtsL"
+        android:id="@+id/colGolesL"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="0.7"
@@ -34,7 +34,7 @@
         android:textColor="#FFFFFF" />
 
     <TextView
-        android:id="@+id/colPtsV"
+        android:id="@+id/colGolesV"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="0.7"

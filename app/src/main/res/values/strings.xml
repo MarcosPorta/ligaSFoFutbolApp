@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">LRFSF</string>
+    <string name="fecha_para_temp_regular">Fecha: %1$d</string>
     <string-array name="categorias">
         <item>Categoria</item>
         <item>Primera</item>
