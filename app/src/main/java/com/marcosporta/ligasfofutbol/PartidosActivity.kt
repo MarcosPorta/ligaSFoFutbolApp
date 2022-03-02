@@ -1,5 +1,6 @@
 package com.marcosporta.ligasfofutbol
 
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -59,8 +60,8 @@ class PartidosActivity : AppCompatActivity() {
                         val fecha = jsonObject.getInt("fecha")
                         val diaHora = jsonObject.getString("diahora")
 
-                        if (fecha != cont && diaHora != cont2){
-                            println("MIRAR ACA ------------> $diaHora y $cont2")
+                        if (fecha != cont && diaHora != cont2 && diaHora != ""){
+                            //println("MIRAR ACA ------------> $diaHora y $cont2")
                             val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha, null, false)
                             val colNumeroFecha=registro2.findViewById<View>(R.id.colNumeroFecha) as TextView
                             val colDiaHora=registro2.findViewById<View>(R.id.colDiaHora) as TextView
@@ -70,13 +71,12 @@ class PartidosActivity : AppCompatActivity() {
                             cont += 1
                             cont2 = diaHora
                         } else if (fecha != cont){
-                            println("MIRAR ACA ---->>>>>>>>   $fecha y $cont")
                             val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha, null, false)
                             val colNumeroFecha=registro2.findViewById<View>(R.id.colNumeroFecha) as TextView
                             colNumeroFecha.text=getString(R.string.fecha_para_temp_regular,fecha)
                             tbFixture?.addView(registro2)
                             cont += 1
-                        } else if (diaHora != cont2){
+                        } else if (diaHora != cont2 && diaHora != ""){
                             val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha, null, false)
                             val colDiaHora=registro2.findViewById<View>(R.id.colDiaHora) as TextView
                             colDiaHora.text=jsonObject.getString("diahora")
@@ -104,42 +104,66 @@ class PartidosActivity : AppCompatActivity() {
         )
         queue.add(jsonObjectRequest)
 
-        val spinner: Spinner= findViewById(R.id.sp_fechaPart)
+        //SPINNERS
+            //Zonas
+        val spinnerZona: Spinner = findViewById(R.id.sp_zonaPart)
+        val listaZona = resources.getStringArray(R.array.zonas)
 
-        ArrayAdapter.createFromResource(this,R.array.fechas,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            // Apply the adapter to the spinner
-            spinner.adapter = adapter
+        val adaptadorZona = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,listaZona)
+        spinnerZona.adapter = adaptadorZona
+
+        spinnerZona.onItemSelectedListener = object:
+            AdapterView.OnItemSelectedListener{
+            //Cuando tengo un elemento seleccionado.
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
+                Toast.makeText(this@PartidosActivity,listaZona[pos],Toast.LENGTH_LONG).show()
+            }
+            //Cuando NO tengo un elemento seleccionado.
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                TODO("Not yet implemented")
+            }
+        }
+            //Categorias
+        val spinnerCat: Spinner = findViewById(R.id.sp_categoriaPart)
+        val listaCat = resources.getStringArray(R.array.categorias)
+
+        val adaptadorCat = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,listaCat)
+        spinnerCat.adapter = adaptadorCat
+
+        spinnerCat.onItemSelectedListener = object:
+            AdapterView.OnItemSelectedListener{
+            //Cuando tengo un elemento seleccionado.
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
+                Toast.makeText(this@PartidosActivity,listaCat[pos],Toast.LENGTH_LONG).show()
+            }
+            //Cuando NO tengo un elemento seleccionado.
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                TODO("Not yet implemented")
+            }
+        }
+            //Torneos
+        val spinnerTor: Spinner= findViewById(R.id.sp_torneoPart)
+        val listaTor = resources.getStringArray(R.array.torneos)
+
+        val adaptadorTor = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,listaTor)
+        spinnerTor.adapter = adaptadorTor
+
+        spinnerTor.onItemSelectedListener = object:
+            AdapterView.OnItemSelectedListener{
+            //Cuando tengo un elemento seleccionado.
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
+                Toast.makeText(this@PartidosActivity,listaTor[pos],Toast.LENGTH_LONG).show()
+            }
+            //Cuando NO tengo un elemento seleccionado.
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                TODO("Not yet implemented")
+            }
         }
 
-        val spinner2: Spinner = findViewById(R.id.sp_categoriaPart)
-
-        ArrayAdapter.createFromResource(this,R.array.categorias,
-            android.R.layout.simple_spinner_dropdown_item
-        ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            // Apply the adapter to the spinner
-            spinner2.adapter = adapter
-        }
-
-        val spinner3: Spinner = findViewById(R.id.sp_zonaPart)
-
-        ArrayAdapter.createFromResource(this,R.array.zonas,
-            android.R.layout.simple_spinner_dropdown_item
-        ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            // Apply the adapter to the spinner
-            spinner3.adapter = adapter
-        }
+        //Funcionalidad para realizar las consultas.
 
 
     }
-
 
 }
 
