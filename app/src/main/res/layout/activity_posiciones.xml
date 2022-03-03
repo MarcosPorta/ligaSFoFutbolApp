@@ -17,8 +17,18 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Spinner
+            android:id="@+id/sp_zonaPos"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"
+            android:spinnerMode="dropdown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
             android:id="@+id/sp_categoriaPos"
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_weight="1"
             android:layout_marginTop="8dp"
@@ -27,13 +37,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
-            android:id="@+id/sp_zonaPos"
-            android:layout_width="200dp"
+            android:id="@+id/sp_torneoPos"
+            android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_weight="1"
             android:layout_marginTop="8dp"
             android:spinnerMode="dropdown"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </TableRow>
