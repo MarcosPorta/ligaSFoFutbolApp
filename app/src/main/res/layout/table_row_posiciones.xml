@@ -7,66 +7,68 @@
     android:background="@color/black">
 
     <TextView
-        android:id="@+id/equipoPos"
+        android:id="@+id/colEquipo"
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_marginStart="2dp"
         android:layout_weight="3"
-        android:text="EQUIPO"
+        android:text="@string/equipo"
         android:gravity="start"
         android:textColor="#FFFFFF" />
 
     <TextView
-        android:id="@+id/pj"
+        android:id="@+id/colpj"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="PJ"
+        android:text="@string/pj"
         android:gravity="center"
         android:textColor="#FFFFFF" />
 
     <TextView
-        android:id="@+id/pg"
+        android:id="@+id/colpg"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="PG"
+        android:text="@string/pg"
         android:gravity="center"
         android:textColor="#FFFFFF" />
 
     <TextView
-        android:id="@+id/pe"
+        android:id="@+id/colpe"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="PE"
+        android:text="@string/pe"
         android:gravity="center"
         android:textColor="#FFFFFF" />
 
     <TextView
-        android:id="@+id/pp"
+        android:id="@+id/colpp"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="PP"
+        android:text="@string/pp"
         android:gravity="center"
         android:textColor="#FFFFFF" />
 
     <TextView
-        android:id="@+id/pts"
+        android:id="@+id/colpts"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="PTS"
+        android:text="@string/pts"
         android:textStyle="bold"
         android:gravity="center"
         android:textColor="#FFFFFF" />
 
     <TextView
-        android:id="@+id/dif"
+        android:id="@+id/coldif"
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_marginEnd="2dp"
         android:layout_weight="1"
-        android:text="DIF"
         android:gravity="end"
+        android:text="@string/dif"
         android:textColor="#FFFFFF" />
 </TableRow>

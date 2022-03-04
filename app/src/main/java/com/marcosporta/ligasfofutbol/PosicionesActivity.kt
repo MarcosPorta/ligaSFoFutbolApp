@@ -2,12 +2,17 @@ package com.marcosporta.ligasfofutbol
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
+import com.android.volley.Request
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration
+import org.json.JSONException
 import java.util.*
 
 class PosicionesActivity : AppCompatActivity() {
@@ -69,7 +74,7 @@ class PosicionesActivity : AppCompatActivity() {
 
         spinnerCat.onItemSelectedListener = object:
             AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+            override fun onItemSelected(p0: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                 categoriaSeleccionada = spinnerCat.selectedItem.toString()
                 //Funcionalidad para realizar las consultas.
                 consultasPosiciones(zonaSeleccionada,categoriaSeleccionada,torneoSeleccionado)
@@ -85,7 +90,7 @@ class PosicionesActivity : AppCompatActivity() {
 
         spinnerTor.onItemSelectedListener = object:
             AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+            override fun onItemSelected(p0: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                 torneoSeleccionado = spinnerTor.selectedItem.toString()
                 //Funcionalidad para realizar las consultas.
                 consultasPosiciones(zonaSeleccionada,categoriaSeleccionada,torneoSeleccionado)
@@ -103,6 +108,42 @@ class PosicionesActivity : AppCompatActivity() {
                 Toast.makeText(this,"url recibida: $url", Toast.LENGTH_LONG).show()
                 tbPosiciones=findViewById(R.id.tbPosiciones)
                 tbPosiciones?.removeAllViews()
+
+                var queue= Volley.newRequestQueue(this)
+
+                var jsonObjectRequest= JsonObjectRequest(
+                    Request.Method.GET,url,null,
+                    { response ->
+                        try {
+                            var jsonArray = response.getJSONArray("data")
+                            for(i in 0 until jsonArray.length() ){
+                                var jsonObject=jsonArray.getJSONObject(i)
+
+                                val registro= LayoutInflater.from(this).inflate(R.layout.table_row_posiciones,null,false)
+                                val colEquipo=registro.findViewById<View>(R.id.colEquipo) as TextView
+                                val colpj=registro.findViewById<View>(R.id.colpj) as TextView
+                                val colpg=registro.findViewById<View>(R.id.colpg) as TextView
+                                val colpe=registro.findViewById<View>(R.id.colpe) as TextView
+                                val colpp=registro.findViewById<View>(R.id.colpp) as TextView
+                                val colpts=registro.findViewById<View>(R.id.colpts) as TextView
+                                val coldif=registro.findViewById<View>(R.id.coldif) as TextView
+                                colEquipo.text=jsonObject.getString("nombre")
+                                colpj.text=jsonObject.getString("pj")
+                                colpg.text=jsonObject.getString("pg")
+                                colpe.text=jsonObject.getString("pe")
+                                colpp.text=jsonObject.getString("pp")
+                                colpts.text=jsonObject.getString("pts")
+                                coldif.text=jsonObject.getString("dif")
+                                tbPosiciones?.addView(registro)
+                            }
+                        }catch (e: JSONException){
+                            e.printStackTrace()
+                        }
+                    }, { error ->
+                        Toast.makeText(this,"Error $error ", Toast.LENGTH_LONG).show()
+                    }
+                )
+                queue.add(jsonObjectRequest)
             }
 
             }

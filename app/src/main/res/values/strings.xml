@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">LRFSF</string>
     <string name="fecha_para_temp_regular">Fecha: %1$d</string>
+    <string name="equipo">EQUIPO</string>
+    <string name="pj">PJ</string>
+    <string name="pg">PG</string>
+    <string name="pe">PE</string>
+    <string name="pp">PP</string>
+    <string name="pts">PTS</string>
+    <string name="dif">DIF</string>
+
     <string-array name="categorias">
         <item>Categoria</item>
         <item>Primera</item>
