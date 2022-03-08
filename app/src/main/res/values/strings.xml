@@ -8,6 +8,11 @@
     <string name="pp">PP</string>
     <string name="pts">PTS</string>
     <string name="dif">DIF</string>
+    <string name="local">local</string>
+    <string name="ptsl">ptsL</string>
+    <string name="guion">-</string>
+    <string name="ptsv">ptsV</string>
+    <string name="visita">visita</string>
 
     <string-array name="categorias">
         <item>Categoria</item>
