@@ -114,7 +114,7 @@ class PartidosActivity : AppCompatActivity() {
         if (torneoSeleccionado != "Torneo" && zonaSeleccionada != "Zona" && categoriaSeleccionada != "Categoria"){
 
             var url = "https://marcosporta.site/ligasfcoapp/$zona$categoria$torneo.php"
-            Toast.makeText(this,"$zona  $categoria  $torneo",Toast.LENGTH_LONG).show()
+            Toast.makeText(this,"$zona $categoria $torneo",Toast.LENGTH_LONG).show()
 
             tbFixture=findViewById(R.id.tbFixture)
             tbFixture?.removeAllViews()

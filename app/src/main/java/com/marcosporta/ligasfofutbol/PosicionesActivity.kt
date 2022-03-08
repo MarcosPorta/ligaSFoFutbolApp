@@ -50,7 +50,7 @@ class PosicionesActivity : AppCompatActivity() {
         spinnerZona = findViewById(R.id.sp_zonaPos)
         val listaZona = resources.getStringArray(R.array.zonas)
 
-        val adaptadorZona = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,listaZona)
+        val adaptadorZona = ArrayAdapter(this,R.layout.spinner_style,listaZona)
         spinnerZona.adapter = adaptadorZona
 
         spinnerZona.onItemSelectedListener = object:
@@ -69,7 +69,7 @@ class PosicionesActivity : AppCompatActivity() {
         spinnerCat = findViewById(R.id.sp_categoriaPos)
         val listaCat = resources.getStringArray(R.array.categorias)
 
-        val adaptadorCat = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,listaCat)
+        val adaptadorCat = ArrayAdapter(this,R.layout.spinner_style,listaCat)
         spinnerCat.adapter = adaptadorCat
 
         spinnerCat.onItemSelectedListener = object:
@@ -85,7 +85,7 @@ class PosicionesActivity : AppCompatActivity() {
         spinnerTor = findViewById(R.id.sp_torneoPos)
         val listaTor = resources.getStringArray(R.array.torneos)
 
-        val adaptadorTor = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,listaTor)
+        val adaptadorTor = ArrayAdapter(this,R.layout.spinner_style,listaTor)
         spinnerTor.adapter = adaptadorTor
 
         spinnerTor.onItemSelectedListener = object:
@@ -105,7 +105,7 @@ class PosicionesActivity : AppCompatActivity() {
         private fun consultasPosiciones(zona: String, categoria:String, torneo:String){
             if (torneoSeleccionado != "Torneo" && zonaSeleccionada != "Zona" && categoriaSeleccionada != "Categoria"){
                 var url = "https://marcosporta.site/ligasfcoapp/pos$zona$categoria$torneo.php"
-                Toast.makeText(this,"url recibida: $url", Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"$zona $categoria $torneo", Toast.LENGTH_LONG).show()
                 tbPosiciones=findViewById(R.id.tbPosiciones)
                 tbPosiciones?.removeAllViews()
 
