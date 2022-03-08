@@ -50,7 +50,7 @@ class PartidosActivity : AppCompatActivity() {
         spinnerZona = findViewById(R.id.sp_zonaPart)
         val listaZona = resources.getStringArray(R.array.zonas)
 
-        val adaptadorZona = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,listaZona)
+        val adaptadorZona = ArrayAdapter(this,R.layout.spinner_style,listaZona)
         spinnerZona.adapter = adaptadorZona
 
         spinnerZona.onItemSelectedListener = object:
@@ -73,7 +73,7 @@ class PartidosActivity : AppCompatActivity() {
         spinnerCat = findViewById(R.id.sp_categoriaPart)
         val listaCat = resources.getStringArray(R.array.categorias)
 
-        val adaptadorCat = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,listaCat)
+        val adaptadorCat = ArrayAdapter(this,R.layout.spinner_style,listaCat)
         spinnerCat.adapter = adaptadorCat
 
         spinnerCat.onItemSelectedListener = object:
@@ -96,7 +96,7 @@ class PartidosActivity : AppCompatActivity() {
         spinnerTor = findViewById(R.id.sp_torneoPart)
         val listaTor = resources.getStringArray(R.array.torneos)
 
-        val adaptadorTor = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,listaTor)
+        val adaptadorTor = ArrayAdapter(this,R.layout.spinner_style,listaTor)
         spinnerTor.adapter = adaptadorTor
 
         spinnerTor.onItemSelectedListener = object:

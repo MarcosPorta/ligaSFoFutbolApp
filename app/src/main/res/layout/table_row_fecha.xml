@@ -2,8 +2,12 @@
 <TableRow
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center">
+    android:layout_height="25sp"
+    android:gravity="center"
+    android:paddingTop="15sp"
+    android:paddingBottom="15sp"
+    android:paddingStart="5sp"
+    android:paddingEnd="5sp">
 
     <TextView
         android:id="@+id/colNumeroFecha"
@@ -14,9 +18,9 @@
         android:gravity="start"
         android:paddingStart="5sp"
         android:paddingEnd="0sp"
-        android:background="#000000"
+        android:background="@color/primary_light"
         android:textStyle="bold"
-        android:textColor="#FFFFFF" />
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/colDiaHora"
@@ -27,9 +31,9 @@
         android:gravity="end"
         android:paddingStart="5sp"
         android:paddingEnd="0sp"
-        android:background="#000000"
+        android:background="@color/primary_light"
         android:textStyle="bold"
-        android:textColor="#FFFFFF" />
+        android:textColor="@color/black" />
 
 
 </TableRow>
