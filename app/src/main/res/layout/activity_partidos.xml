@@ -7,43 +7,6 @@
     android:background="@color/black"
     tools:context=".PartidosActivity">
 
-    <!--<TableRow
-        android:id="@+id/trBotones"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <Button
-            android:id="@+id/btnTempRegular"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="serif-monospace"
-            android:gravity="center"
-            android:letterSpacing="0.05"
-            android:textColor="#000000"
-            android:text="Temp. regular"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/btnPlayoffs"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="serif-monospace"
-            android:gravity="center"
-            android:letterSpacing="0.05"
-            android:textColor="#000000"
-            android:text="Eliminatorias"
-            android:textSize="15dp"
-            android:textStyle="bold"/>
-    </TableRow>-->
-
     <TableRow
         android:id="@+id/trPart"
         android:layout_width="match_parent"
