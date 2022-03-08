@@ -57,8 +57,7 @@ class PartidosActivity : AppCompatActivity() {
             AdapterView.OnItemSelectedListener{
             //Cuando tengo un elemento seleccionado.
             override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
-                //Toast.makeText(this@PartidosActivity,listaZona[pos],Toast.LENGTH_LONG).show()
-                println("MIRAR ACA -------->>> ${spinnerZona.selectedItem}")
+                //println("MIRAR ACA -------->>> ${spinnerZona.selectedItem}")
                 zonaSeleccionada = spinnerZona.selectedItem.toString()
 
                 //Funcionalidad para realizar las consultas.
@@ -66,7 +65,6 @@ class PartidosActivity : AppCompatActivity() {
             }
             //Cuando NO tengo un elemento seleccionado.
             override fun onNothingSelected(parent: AdapterView<*>) {
-                TODO("Not yet implemented")
             }
         }
             //Categorias
@@ -80,8 +78,6 @@ class PartidosActivity : AppCompatActivity() {
             AdapterView.OnItemSelectedListener{
             //Cuando tengo un elemento seleccionado.
             override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
-                //Toast.makeText(this@PartidosActivity,listaCat[pos],Toast.LENGTH_LONG).show()
-                println("MIRAR ACA -------->>> ${spinnerCat.selectedItem}")
                 categoriaSeleccionada = spinnerCat.selectedItem.toString()
 
                 //Funcionalidad para realizar las consultas.
@@ -89,7 +85,6 @@ class PartidosActivity : AppCompatActivity() {
             }
             //Cuando NO tengo un elemento seleccionado.
             override fun onNothingSelected(parent: AdapterView<*>) {
-                TODO("Not yet implemented")
             }
         }
             //Torneos
@@ -103,8 +98,6 @@ class PartidosActivity : AppCompatActivity() {
             AdapterView.OnItemSelectedListener{
             //Cuando tengo un elemento seleccionado.
             override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
-                //Toast.makeText(this@PartidosActivity,listaTor[pos],Toast.LENGTH_LONG).show()
-                println("MIRAR ACA -------->>> ${spinnerTor.selectedItem}")
                 torneoSeleccionado = spinnerTor.selectedItem.toString()
 
                 //Funcionalidad para realizar las consultas.
@@ -112,7 +105,6 @@ class PartidosActivity : AppCompatActivity() {
             }
             //Cuando NO tengo un elemento seleccionado.
             override fun onNothingSelected(parent: AdapterView<*>) {
-                TODO("Not yet implemented")
             }
         }
 
@@ -122,7 +114,7 @@ class PartidosActivity : AppCompatActivity() {
         if (torneoSeleccionado != "Torneo" && zonaSeleccionada != "Zona" && categoriaSeleccionada != "Categoria"){
 
             var url = "https://marcosporta.site/ligasfcoapp/$zona$categoria$torneo.php"
-            Toast.makeText(this,"url recibida: $url",Toast.LENGTH_LONG).show()
+            Toast.makeText(this,"$zona  $categoria  $torneo",Toast.LENGTH_LONG).show()
 
             tbFixture=findViewById(R.id.tbFixture)
             tbFixture?.removeAllViews()
@@ -144,7 +136,7 @@ class PartidosActivity : AppCompatActivity() {
 
                             if (fecha != cont && diaHora != cont2 && diaHora != ""){
                                 //println("MIRAR ACA ------------> $diaHora y $cont2")
-                                val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha, null, false)
+                                val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha,null, false)
                                 val colNumeroFecha=registro2.findViewById<View>(R.id.colNumeroFecha) as TextView
                                 val colDiaHora=registro2.findViewById<View>(R.id.colDiaHora) as TextView
                                 colNumeroFecha.text=getString(R.string.fecha_para_temp_regular,fecha)
@@ -153,13 +145,13 @@ class PartidosActivity : AppCompatActivity() {
                                 cont += 1
                                 cont2 = diaHora
                             } else if (fecha != cont){
-                                val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha, null, false)
+                                val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha,null, false)
                                 val colNumeroFecha=registro2.findViewById<View>(R.id.colNumeroFecha) as TextView
                                 colNumeroFecha.text=getString(R.string.fecha_para_temp_regular,fecha)
                                 tbFixture?.addView(registro2)
                                 cont += 1
                             } else if (diaHora != cont2 && diaHora != ""){
-                                val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha, null, false)
+                                val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha,null, false)
                                 val colDiaHora=registro2.findViewById<View>(R.id.colDiaHora) as TextView
                                 colDiaHora.text=jsonObject.getString("diahora")
                                 tbFixture?.addView(registro2)
