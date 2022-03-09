@@ -149,7 +149,8 @@
 
 
     </ScrollView>
-    <!-- ca-app-pub-2807876859130041/3168398284 -->
+    <!-- de la app: ca-app-pub-2807876859130041/3168398284 -->
+    <!-- de prueba: ca-app-pub-3940256099942544/6300978111 -->
     <com.google.android.gms.ads.AdView
         android:id="@+id/bannerPosiciones"
         android:layout_width="wrap_content"

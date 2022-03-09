@@ -69,7 +69,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/filaEncabezadoFix" />
     </ScrollView>
-    <!-- ca-app-pub-2807876859130041/5468222593 -->
+    <!-- de la app: ca-app-pub-2807876859130041/5468222593 -->
+    <!-- de prueba: ca-app-pub-3940256099942544/6300978111 -->
     <com.google.android.gms.ads.AdView
         android:id="@+id/bannerPartidos"
         android:layout_width="wrap_content"
