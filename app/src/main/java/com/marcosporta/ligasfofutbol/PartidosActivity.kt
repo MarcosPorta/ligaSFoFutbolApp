@@ -111,7 +111,11 @@ class PartidosActivity : AppCompatActivity() {
     }
 
     private fun consultaPartidos(zona: String, categoria:String, torneo:String) {
-        if (torneoSeleccionado != "Torneo" && zonaSeleccionada != "Zona" && categoriaSeleccionada != "Categoria"){
+        if (torneoSeleccionado == "Clausura" && zonaSeleccionada != "Zona" &&
+            (categoriaSeleccionada != "Categoria" && categoriaSeleccionada != "Primera" && categoriaSeleccionada != "Reserva")){
+            Toast.makeText(this,"No hay partidos para:\n$zona $categoria $torneo", Toast.LENGTH_LONG).show()
+        }
+        else if (torneoSeleccionado != "Torneo" && zonaSeleccionada != "Zona" && categoriaSeleccionada != "Categoria"){
 
             var url = "https://marcosporta.site/ligasfcoapp/$zona$categoria$torneo.php"
             Toast.makeText(this,"$zona $categoria $torneo",Toast.LENGTH_LONG).show()

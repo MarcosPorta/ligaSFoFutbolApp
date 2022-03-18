@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    <Spinner
+        <Spinner
             android:id="@+id/sp_zonaPart"
             android:layout_width="match_parent"
             android:layout_height="56dp"
@@ -25,6 +25,7 @@
             android:layout_weight="1"
             android:background="@drawable/style_spinner1"
             android:spinnerMode="dropdown"
+            android:popupBackground="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
