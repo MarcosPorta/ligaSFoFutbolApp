@@ -13,6 +13,13 @@
     <string name="guion">-</string>
     <string name="ptsv">ptsV</string>
     <string name="visita">visita</string>
+    <string name="inferiores">Inferiores</string>
+    <string name="mayores">Mayores</string>
+
+    <string-array name="mayinf">
+        <item>Mayores</item>
+        <item>Inferiores</item>
+    </string-array>
 
     <string-array name="categorias">
         <item>Categoria</item>

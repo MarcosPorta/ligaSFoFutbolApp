@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.marcosporta.ligasfofutbol">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,26 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LigaSfoFutbol">
-
-        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
-
-
-        <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
-        <!-- ID de app: ca-app-pub-2807876859130041~2368250687 -->
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
+        <activity
+            android:name=".PosicionesInfActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".PosicionesActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" /> <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+        <!-- ID de app: ca-app-pub-2807876859130041~2368250687 -->
         <activity
             android:name=".PartidosActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -41,6 +37,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
