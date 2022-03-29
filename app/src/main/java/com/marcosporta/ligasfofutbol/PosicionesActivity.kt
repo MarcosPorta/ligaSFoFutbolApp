@@ -153,9 +153,7 @@ class PosicionesActivity : AppCompatActivity() {
                 { response ->
                     try {
                         val jsonArray = response.getJSONArray("data")
-                        var largojsonArray = jsonArray.length()
                         for(i in 0 until jsonArray.length() ){
-                            println("MIRAR ACA ------> $largojsonArray")
                             val jsonObject=jsonArray.getJSONObject(i)
 
                             val registro= LayoutInflater.from(this).inflate(R.layout.table_row_posiciones,null,false)
