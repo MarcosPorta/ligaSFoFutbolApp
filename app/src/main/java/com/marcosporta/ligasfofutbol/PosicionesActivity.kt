@@ -1,6 +1,5 @@
 package com.marcosporta.ligasfofutbol
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -30,7 +29,6 @@ class PosicionesActivity : AppCompatActivity() {
     var categoriaSeleccionada:String = "Categoria"
     var torneoSeleccionado:String = "Torneo"
     var moiSeleccionado:String = "MayoInf"
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,15 +64,6 @@ class PosicionesActivity : AppCompatActivity() {
 
         //Categoria mayores/inferiores
         spinnerCat = findViewById(R.id.sp_categoriaPos)
-        /*val listaCatMayores = resources.getStringArray(R.array.categoriasMayores)
-        println("MIRAR ACA ----------> $listaCatMayores")
-        val listaCatInferiores = resources.getStringArray(R.array.categoriasInferiores)
-        println("MIRAR ACA ----------> $listaCatInferiores")
-
-        val adaptadorCatMayores = ArrayAdapter(this,R.layout.spinner_style,listaCatMayores)
-        println("MIRAR ACA ----------> $adaptadorCatMayores")
-        val adaptadorCatInferiores = ArrayAdapter(this,R.layout.spinner_style,listaCatInferiores)
-        println("MIRAR ACA ----------> $adaptadorCatInferiores")*/
 
         //Torneo
         spinnerTor = findViewById(R.id.sp_torneoPos)
@@ -157,15 +146,15 @@ class PosicionesActivity : AppCompatActivity() {
             tbPosiciones=findViewById(R.id.tbPosiciones)
             tbPosiciones?.removeAllViews()
 
-            var queue= Volley.newRequestQueue(this)
+            val queue= Volley.newRequestQueue(this)
 
-            var jsonObjectRequest= JsonObjectRequest(
+            val jsonObjectRequest= JsonObjectRequest(
                 Request.Method.GET,url,null,
                 { response ->
                     try {
-                        var jsonArray = response.getJSONArray("data")
+                        val jsonArray = response.getJSONArray("data")
                         for(i in 0 until jsonArray.length() ){
-                            var jsonObject=jsonArray.getJSONObject(i)
+                            val jsonObject=jsonArray.getJSONObject(i)
 
                             val registro= LayoutInflater.from(this).inflate(R.layout.table_row_posiciones,null,false)
                             val colEquipo=registro.findViewById<View>(R.id.colEquipo) as TextView
