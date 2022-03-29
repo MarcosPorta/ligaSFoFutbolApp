@@ -137,7 +137,7 @@ class PosicionesActivity : AppCompatActivity() {
 
     private fun consultasPosiciones(zona: String, categoria:String, torneo:String){
         if (torneoSeleccionado == "Clausura" && zonaSeleccionada != "Zona" &&
-            (categoriaSeleccionada != "Categoria" && categoriaSeleccionada != "Primera" && categoriaSeleccionada != "Reserva")){
+            categoriaSeleccionada != "Categoria"){
             Toast.makeText(this,"No hay tabla para:\n$zona $categoria $torneo", Toast.LENGTH_LONG).show()
         }
         else if (torneoSeleccionado != "Torneo" && zonaSeleccionada != "Zona" && categoriaSeleccionada != "Categoria"){
