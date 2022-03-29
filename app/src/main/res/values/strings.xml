@@ -21,6 +21,22 @@
         <item>Inferiores</item>
     </string-array>
 
+    <string-array name="categoriasInferiores">
+        <item>Categoria</item>
+        <item>General</item>
+        <item>Juvenil</item>
+        <item>Prejuvenil</item>
+        <item>Infantil</item>
+        <item>Preinfantil</item>
+        <item>Promocional</item>
+    </string-array>
+
+    <string-array name="categoriasMayores">
+        <item>Categoria</item>
+        <item>Primera</item>
+        <item>Reserva</item>
+    </string-array>
+
     <string-array name="categorias">
         <item>Categoria</item>
         <item>Primera</item>

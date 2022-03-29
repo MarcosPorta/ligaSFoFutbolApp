@@ -25,9 +25,12 @@ class PosicionesActivity : AppCompatActivity() {
     lateinit var spinnerZona:Spinner
     lateinit var spinnerCat:Spinner
     lateinit var spinnerTor:Spinner
+    lateinit var spinnerPos: Spinner
     var zonaSeleccionada:String = "Zona"
     var categoriaSeleccionada:String = "Categoria"
     var torneoSeleccionado:String = "Torneo"
+    var moiSeleccionado:String = "MayoInf"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,13 +50,40 @@ class PosicionesActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         //SPINNERS
-            //Zona
+        //Mayores o inferiores.
+        spinnerPos = findViewById(R.id.sp_posiciones)
+        val listaMayInf = resources.getStringArray(R.array.mayinf)
+
+        val adaptadorMayInf = ArrayAdapter(this,R.layout.spinner_style,listaMayInf)
+        spinnerPos.adapter = adaptadorMayInf
+
+        //Zona
         spinnerZona = findViewById(R.id.sp_zonaPos)
         val listaZona = resources.getStringArray(R.array.zonas)
 
         val adaptadorZona = ArrayAdapter(this,R.layout.spinner_style,listaZona)
         spinnerZona.adapter = adaptadorZona
 
+        //Categoria mayores/inferiores
+        spinnerCat = findViewById(R.id.sp_categoriaPos)
+        /*val listaCatMayores = resources.getStringArray(R.array.categoriasMayores)
+        println("MIRAR ACA ----------> $listaCatMayores")
+        val listaCatInferiores = resources.getStringArray(R.array.categoriasInferiores)
+        println("MIRAR ACA ----------> $listaCatInferiores")
+
+        val adaptadorCatMayores = ArrayAdapter(this,R.layout.spinner_style,listaCatMayores)
+        println("MIRAR ACA ----------> $adaptadorCatMayores")
+        val adaptadorCatInferiores = ArrayAdapter(this,R.layout.spinner_style,listaCatInferiores)
+        println("MIRAR ACA ----------> $adaptadorCatInferiores")*/
+
+        //Torneo
+        spinnerTor = findViewById(R.id.sp_torneoPos)
+        val listaTor = resources.getStringArray(R.array.torneos)
+
+        val adaptadorTor = ArrayAdapter(this,R.layout.spinner_style,listaTor)
+        spinnerTor.adapter = adaptadorTor
+
+        //Funcionalidad a los spinners
         spinnerZona.onItemSelectedListener = object:
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, view: View?, pos: Int, id: Long) {
@@ -66,13 +96,18 @@ class PosicionesActivity : AppCompatActivity() {
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
         }
-            //Categoria
-        spinnerCat = findViewById(R.id.sp_categoriaPos)
-        val listaCat = resources.getStringArray(R.array.categorias)
-
-        val adaptadorCat = ArrayAdapter(this,R.layout.spinner_style,listaCat)
-        spinnerCat.adapter = adaptadorCat
-
+        spinnerPos.onItemSelectedListener = object:
+        AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, view: View?, pos: Int, id: Long) {
+                moiSeleccionado = spinnerPos.selectedItem.toString()
+                println("MIRAR ACA ----------> $moiSeleccionado")
+                //Funcionalidad para mayores o menores
+                seleccionMayoMen(moiSeleccionado)
+            }
+            //Cuando NO tengo un elemento seleccionado.
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+        }
         spinnerCat.onItemSelectedListener = object:
             AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, view: View?, pos: Int, id: Long) {
@@ -83,12 +118,6 @@ class PosicionesActivity : AppCompatActivity() {
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
         }
-        spinnerTor = findViewById(R.id.sp_torneoPos)
-        val listaTor = resources.getStringArray(R.array.torneos)
-
-        val adaptadorTor = ArrayAdapter(this,R.layout.spinner_style,listaTor)
-        spinnerTor.adapter = adaptadorTor
-
         spinnerTor.onItemSelectedListener = object:
             AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, view: View?, pos: Int, id: Long) {
@@ -96,64 +125,73 @@ class PosicionesActivity : AppCompatActivity() {
                 //Funcionalidad para realizar las consultas.
                 consultasPosiciones(zonaSeleccionada,categoriaSeleccionada,torneoSeleccionado)
             }
-
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
         }
+
     }
 
-        private fun consultasPosiciones(zona: String, categoria:String, torneo:String){
-            if (torneoSeleccionado == "Clausura" && zonaSeleccionada != "Zona" &&
-                (categoriaSeleccionada != "Categoria" && categoriaSeleccionada != "Primera" && categoriaSeleccionada != "Reserva")){
-                Toast.makeText(this,"No hay tabla para:\n$zona $categoria $torneo", Toast.LENGTH_LONG).show()
-            }
-            else if (torneoSeleccionado != "Torneo" && zonaSeleccionada != "Zona" && categoriaSeleccionada != "Categoria"){
-                var url = "https://marcosporta.site/ligasfcoapp/pos$zona$categoria$torneo.php"
-                Toast.makeText(this,"$zona $categoria $torneo", Toast.LENGTH_LONG).show()
-                tbPosiciones=findViewById(R.id.tbPosiciones)
-                tbPosiciones?.removeAllViews()
+    private fun seleccionMayoMen(moiSeleccionado: String) {
+        spinnerCat = findViewById(R.id.sp_categoriaPos)
+        var listaCategorias = resources.getStringArray(R.array.categoriasMayores)
+        var adaptadorCat = ArrayAdapter(this,R.layout.spinner_style,listaCategorias)
 
-                var queue= Volley.newRequestQueue(this)
-
-                var jsonObjectRequest= JsonObjectRequest(
-                    Request.Method.GET,url,null,
-                    { response ->
-                        try {
-                            var jsonArray = response.getJSONArray("data")
-                            for(i in 0 until jsonArray.length() ){
-                                var jsonObject=jsonArray.getJSONObject(i)
-
-                                val registro= LayoutInflater.from(this).inflate(R.layout.table_row_posiciones,null,false)
-                                val colEquipo=registro.findViewById<View>(R.id.colEquipo) as TextView
-                                val colpj=registro.findViewById<View>(R.id.colpj) as TextView
-                                val colpg=registro.findViewById<View>(R.id.colpg) as TextView
-                                val colpe=registro.findViewById<View>(R.id.colpe) as TextView
-                                val colpp=registro.findViewById<View>(R.id.colpp) as TextView
-                                val colpts=registro.findViewById<View>(R.id.colpts) as TextView
-                                val coldif=registro.findViewById<View>(R.id.coldif) as TextView
-                                colEquipo.text=jsonObject.getString("nombre")
-                                colpj.text=jsonObject.getString("pj")
-                                colpg.text=jsonObject.getString("pg")
-                                colpe.text=jsonObject.getString("pe")
-                                colpp.text=jsonObject.getString("pp")
-                                colpts.text=jsonObject.getString("pts")
-                                coldif.text=jsonObject.getString("dif")
-                                tbPosiciones?.addView(registro)
-                            }
-                        }catch (e: JSONException){
-                            e.printStackTrace()
-                        }
-                    }, { error ->
-                        Toast.makeText(this,"Error $error ", Toast.LENGTH_LONG).show()
-                    }
-                )
-                queue.add(jsonObjectRequest)
-            }
-
+        if (moiSeleccionado == "Mayores"){
+            spinnerCat.adapter = adaptadorCat
         }
+        else if (moiSeleccionado == "Inferiores"){
+            listaCategorias = resources.getStringArray(R.array.categoriasInferiores)
+            adaptadorCat = ArrayAdapter(this,R.layout.spinner_style,listaCategorias)
+            spinnerCat.adapter = adaptadorCat
+        }
+    }
 
-    fun clickInferioresPos(view: View) {
-        val intent = Intent(this,PosicionesInfActivity::class.java)
-        startActivity(intent)
+    private fun consultasPosiciones(zona: String, categoria:String, torneo:String){
+        if (torneoSeleccionado == "Clausura" && zonaSeleccionada != "Zona" &&
+            (categoriaSeleccionada != "Categoria" && categoriaSeleccionada != "Primera" && categoriaSeleccionada != "Reserva")){
+            Toast.makeText(this,"No hay tabla para:\n$zona $categoria $torneo", Toast.LENGTH_LONG).show()
+        }
+        else if (torneoSeleccionado != "Torneo" && zonaSeleccionada != "Zona" && categoriaSeleccionada != "Categoria"){
+            var url = "https://marcosporta.site/ligasfcoapp/pos$zona$categoria$torneo.php"
+            Toast.makeText(this,"$zona $categoria $torneo", Toast.LENGTH_LONG).show()
+            tbPosiciones=findViewById(R.id.tbPosiciones)
+            tbPosiciones?.removeAllViews()
+
+            var queue= Volley.newRequestQueue(this)
+
+            var jsonObjectRequest= JsonObjectRequest(
+                Request.Method.GET,url,null,
+                { response ->
+                    try {
+                        var jsonArray = response.getJSONArray("data")
+                        for(i in 0 until jsonArray.length() ){
+                            var jsonObject=jsonArray.getJSONObject(i)
+
+                            val registro= LayoutInflater.from(this).inflate(R.layout.table_row_posiciones,null,false)
+                            val colEquipo=registro.findViewById<View>(R.id.colEquipo) as TextView
+                            val colpj=registro.findViewById<View>(R.id.colpj) as TextView
+                            val colpg=registro.findViewById<View>(R.id.colpg) as TextView
+                            val colpe=registro.findViewById<View>(R.id.colpe) as TextView
+                            val colpp=registro.findViewById<View>(R.id.colpp) as TextView
+                            val colpts=registro.findViewById<View>(R.id.colpts) as TextView
+                            val coldif=registro.findViewById<View>(R.id.coldif) as TextView
+                            colEquipo.text=jsonObject.getString("nombre")
+                            colpj.text=jsonObject.getString("pj")
+                            colpg.text=jsonObject.getString("pg")
+                            colpe.text=jsonObject.getString("pe")
+                            colpp.text=jsonObject.getString("pp")
+                            colpts.text=jsonObject.getString("pts")
+                            coldif.text=jsonObject.getString("dif")
+                            tbPosiciones?.addView(registro)
+                        }
+                    }catch (e: JSONException){
+                        e.printStackTrace()
+                    }
+                }, { error ->
+                    Toast.makeText(this,"Error $error ", Toast.LENGTH_LONG).show()
+                }
+            )
+            queue.add(jsonObjectRequest)
+        }
     }
 }

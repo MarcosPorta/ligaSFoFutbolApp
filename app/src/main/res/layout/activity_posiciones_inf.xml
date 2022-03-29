@@ -8,7 +8,7 @@
     tools:context=".PosicionesInfActivity">
 
     <Spinner
-        android:id="@+id/sp_posiciones"
+        android:id="@+id/sp_posiciones2"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_margin="5dp"
@@ -28,10 +28,10 @@
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_posiciones">
+        app:layout_constraintTop_toBottomOf="@+id/sp_posiciones2">
 
         <Spinner
-            android:id="@+id/sp_zonaPos"
+            android:id="@+id/sp_zonaPos2"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_weight="1"
@@ -43,7 +43,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
-            android:id="@+id/sp_categoriaPos"
+            android:id="@+id/sp_categoriaPos2"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_weight="1"
@@ -55,7 +55,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
-            android:id="@+id/sp_torneoPos"
+            android:id="@+id/sp_torneoPos2"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_weight="1"

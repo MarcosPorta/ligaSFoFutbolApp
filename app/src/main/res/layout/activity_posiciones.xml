@@ -7,16 +7,15 @@
     android:background="@color/black"
     tools:context=".PosicionesActivity">
 
-    <Button
-        android:id="@+id/btnInferioresPos"
+    <Spinner
+        android:id="@+id/sp_posiciones"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
         android:layout_margin="5dp"
-        android:onClick="clickInferioresPos"
-
-        android:text="@string/inferiores"
-
-        android:textColor="@color/white"
+        android:background="@drawable/style_spinner1"
+        android:text="@string/mayores"
+        android:spinnerMode="dropdown"
+        android:popupBackground="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,7 +29,7 @@
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnInferioresPos">
+        app:layout_constraintTop_toBottomOf="@+id/sp_posiciones">
 
         <Spinner
             android:id="@+id/sp_zonaPos"
