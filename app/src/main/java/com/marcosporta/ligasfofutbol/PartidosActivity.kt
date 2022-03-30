@@ -122,17 +122,17 @@ class PartidosActivity : AppCompatActivity() {
 
             tbFixture=findViewById(R.id.tbFixture)
             tbFixture?.removeAllViews()
-            var queue=Volley.newRequestQueue(this)
+            val queue=Volley.newRequestQueue(this)
 
-            var jsonObjectRequest= JsonObjectRequest(
+            val jsonObjectRequest= JsonObjectRequest(
                 Request.Method.GET,url,null,
                 { response ->
                     try {
-                        var jsonArray = response.getJSONArray("data")
+                        val jsonArray = response.getJSONArray("data")
                         var cont = 0
                         var cont2 = ""
                         for(i in 0 until jsonArray.length() ){
-                            var jsonObject=jsonArray.getJSONObject(i)
+                            val jsonObject=jsonArray.getJSONObject(i)
 
                             //Accediendo a un campo de la base de datos (fecha)
                             val fecha = jsonObject.getInt("fecha")
