@@ -118,7 +118,7 @@ class PartidosActivity : AppCompatActivity() {
         else if (torneoSeleccionado != "Torneo" && zonaSeleccionada != "Zona" && categoriaSeleccionada != "Categoria"){
 
             var url = "https://marcosporta.site/ligasfcoapp/$zona$categoria$torneo.php"
-            Toast.makeText(this,"$zona $categoria $torneo",Toast.LENGTH_LONG).show()
+            //Toast.makeText(this,"$zona $categoria $torneo",Toast.LENGTH_LONG).show()
 
             tbFixture=findViewById(R.id.tbFixture)
             tbFixture?.removeAllViews()
@@ -137,33 +137,76 @@ class PartidosActivity : AppCompatActivity() {
                             //Accediendo a un campo de la base de datos (fecha)
                             val fecha = jsonObject.getInt("fecha")
                             val diaHora = jsonObject.getString("diahora")
+                            val golesLocalBD = jsonObject.getString("goles_l")
+                            //println("MIRAR ACA ------------> $golesLocalBD")
+                            //Mostrar fecha liga (HAY QUE AGREGAR LO DEL TEMA ELIMINATORIAS)
+                            if (fecha != cont){
+                                //println("ENTRE A ESTE IF")
+                                val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha,null, false)
+                                val colNumeroFecha=registro2.findViewById<View>(R.id.colNumeroFecha) as TextView
+                                colNumeroFecha.text=getString(R.string.fecha_para_temp_regular,fecha)
+                                tbFixture?.addView(registro2)
+                                cont += 1
+                            }
+                            //Mostrar fecha calendario
+                            if(diaHora != cont2 && diaHora != "" && golesLocalBD == ""){
+                                println("MIRAR ACA ------------> $golesLocalBD")
+                                val registro3 = LayoutInflater.from(this).inflate(R.layout.table_row_calendario,null, false)
+                                val colCalendario=registro3.findViewById<View>(R.id.colCalendario) as TextView
+                                colCalendario.text=jsonObject.getString("diahora")
+                                tbFixture?.addView(registro3)
+                                cont2 = diaHora
+                            }
 
-                            if (fecha != cont && diaHora != cont2 && diaHora != ""){
+                            /*if (fecha != cont && diaHora != cont2 && diaHora != ""){
                                 //println("MIRAR ACA ------------> $diaHora y $cont2")
                                 val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha,null, false)
+                                val registro3 = LayoutInflater.from(this).inflate(R.layout.table_row_calendario,null, false)
                                 val colNumeroFecha=registro2.findViewById<View>(R.id.colNumeroFecha) as TextView
                                 val colDiaHora=registro2.findViewById<View>(R.id.colDiaHora) as TextView
+                                val colCalendario=registro3.findViewById<View>(R.id.colCalendario) as TextView
                                 colNumeroFecha.text=getString(R.string.fecha_para_temp_regular,fecha)
                                 colDiaHora.text=jsonObject.getString("diahora")
+                                colCalendario.text=jsonObject.getString("diahora")
                                 tbFixture?.addView(registro2)
+                                tbFixture?.addView(registro3)
                                 cont += 1
                                 cont2 = diaHora
-                            } else if (fecha != cont){
-                                val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha,null, false)
-                                val colNumeroFecha=registro2.findViewById<View>(R.id.colNumeroFecha) as TextView
-                                colNumeroFecha.text=getString(R.string.fecha_para_temp_regular,fecha)
-                                tbFixture?.addView(registro2)
-                                cont += 1
                             } else if (diaHora != cont2 && diaHora != ""){
                                 val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha,null, false)
                                 val colDiaHora=registro2.findViewById<View>(R.id.colDiaHora) as TextView
                                 colDiaHora.text=jsonObject.getString("diahora")
                                 tbFixture?.addView(registro2)
                                 cont2 = diaHora
+                            }*/
+
+                            //If para alternar diseño filas
+                            if(i % 2 == 0){
+                                val registro=LayoutInflater.from(this).inflate(R.layout.table_row_fixture,null,false)
+                                val colEquipoL=registro.findViewById<View>(R.id.colEquipoL) as TextView
+                                val colGolesL=registro.findViewById<View>(R.id.colGolesL) as TextView
+                                val colGolesV=registro.findViewById<View>(R.id.colGolesV) as TextView
+                                val colEquipoV=registro.findViewById<View>(R.id.colEquipoV) as TextView
+                                colEquipoL.text=jsonObject.getString("equipo_l")
+                                colGolesL.text=jsonObject.getString("goles_l")
+                                colGolesV.text=jsonObject.getString("goles_v")
+                                colEquipoV.text=jsonObject.getString("equipo_v")
+                                tbFixture?.addView(registro)
+                            }
+                            else{
+                                val registro=LayoutInflater.from(this).inflate(R.layout.table_row_fixture2,null,false)
+                                val colEquipoL=registro.findViewById<View>(R.id.colEquipoL) as TextView
+                                val colGolesL=registro.findViewById<View>(R.id.colGolesL) as TextView
+                                val colGolesV=registro.findViewById<View>(R.id.colGolesV) as TextView
+                                val colEquipoV=registro.findViewById<View>(R.id.colEquipoV) as TextView
+                                colEquipoL.text=jsonObject.getString("equipo_l")
+                                colGolesL.text=jsonObject.getString("goles_l")
+                                colGolesV.text=jsonObject.getString("goles_v")
+                                colEquipoV.text=jsonObject.getString("equipo_v")
+                                tbFixture?.addView(registro)
                             }
 
-                            val registro=LayoutInflater.from(this).inflate(R.layout.table_row_fixture,null,false)
-                            val colEquipoL=registro.findViewById<View>(R.id.colEquipoL) as TextView
+                            /*val colEquipoL=registro.findViewById<View>(R.id.colEquipoL) as TextView
                             val colGolesL=registro.findViewById<View>(R.id.colGolesL) as TextView
                             val colGolesV=registro.findViewById<View>(R.id.colGolesV) as TextView
                             val colEquipoV=registro.findViewById<View>(R.id.colEquipoV) as TextView
@@ -171,7 +214,7 @@ class PartidosActivity : AppCompatActivity() {
                             colGolesL.text=jsonObject.getString("goles_l")
                             colGolesV.text=jsonObject.getString("goles_v")
                             colEquipoV.text=jsonObject.getString("equipo_v")
-                            tbFixture?.addView(registro)
+                            tbFixture?.addView(registro)*/
                         }
                     }catch (e: JSONException){
                         e.printStackTrace()

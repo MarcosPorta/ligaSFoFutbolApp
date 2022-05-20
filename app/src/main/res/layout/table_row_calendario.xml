@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="25sp"
+    android:gravity="center"
+    android:paddingTop="0sp"
+    android:paddingBottom="0sp"
+    android:paddingStart="15sp"
+    android:paddingEnd="15sp">
+
+    <TextView
+        android:id="@+id/colCalendario"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text=""
+        android:gravity="center"
+        android:paddingStart="0sp"
+        android:paddingEnd="0sp"
+        android:background="@color/primary_light"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
+
+</TableRow>
