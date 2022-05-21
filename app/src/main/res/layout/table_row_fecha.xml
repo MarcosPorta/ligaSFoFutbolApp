@@ -22,18 +22,4 @@
         android:textStyle="bold"
         android:textColor="@color/black" />
 
-    <TextView
-        android:id="@+id/colDiaHora"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:text=""
-        android:gravity="end"
-        android:paddingStart="5sp"
-        android:paddingEnd="0sp"
-        android:background="@color/primary_light"
-        android:textStyle="bold"
-        android:textColor="@color/black" />
-
-
 </TableRow>

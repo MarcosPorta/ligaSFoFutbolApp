@@ -156,22 +156,43 @@ class PosicionesActivity : AppCompatActivity() {
                         for(i in 0 until jsonArray.length() ){
                             val jsonObject=jsonArray.getJSONObject(i)
 
-                            val registro= LayoutInflater.from(this).inflate(R.layout.table_row_posiciones,null,false)
-                            val colEquipo=registro.findViewById<View>(R.id.colEquipo) as TextView
-                            val colpj=registro.findViewById<View>(R.id.colpj) as TextView
-                            val colpg=registro.findViewById<View>(R.id.colpg) as TextView
-                            val colpe=registro.findViewById<View>(R.id.colpe) as TextView
-                            val colpp=registro.findViewById<View>(R.id.colpp) as TextView
-                            val colpts=registro.findViewById<View>(R.id.colpts) as TextView
-                            val coldif=registro.findViewById<View>(R.id.coldif) as TextView
-                            colEquipo.text=jsonObject.getString("nombre")
-                            colpj.text=jsonObject.getString("pj")
-                            colpg.text=jsonObject.getString("pg")
-                            colpe.text=jsonObject.getString("pe")
-                            colpp.text=jsonObject.getString("pp")
-                            colpts.text=jsonObject.getString("pts")
-                            coldif.text=jsonObject.getString("dif")
-                            tbPosiciones?.addView(registro)
+                            if(i % 2 == 0){
+                                val registro= LayoutInflater.from(this).inflate(R.layout.table_row_posiciones,null,false)
+                                val colEquipo=registro.findViewById<View>(R.id.colEquipo) as TextView
+                                val colpj=registro.findViewById<View>(R.id.colpj) as TextView
+                                val colpg=registro.findViewById<View>(R.id.colpg) as TextView
+                                val colpe=registro.findViewById<View>(R.id.colpe) as TextView
+                                val colpp=registro.findViewById<View>(R.id.colpp) as TextView
+                                val colpts=registro.findViewById<View>(R.id.colpts) as TextView
+                                val coldif=registro.findViewById<View>(R.id.coldif) as TextView
+                                colEquipo.text=jsonObject.getString("nombre")
+                                colpj.text=jsonObject.getString("pj")
+                                colpg.text=jsonObject.getString("pg")
+                                colpe.text=jsonObject.getString("pe")
+                                colpp.text=jsonObject.getString("pp")
+                                colpts.text=jsonObject.getString("pts")
+                                coldif.text=jsonObject.getString("dif")
+                                tbPosiciones?.addView(registro)
+                            }else{
+                                val registro= LayoutInflater.from(this).inflate(R.layout.table_row_posiciones2,null,false)
+                                val colEquipo=registro.findViewById<View>(R.id.colEquipo) as TextView
+                                val colpj=registro.findViewById<View>(R.id.colpj) as TextView
+                                val colpg=registro.findViewById<View>(R.id.colpg) as TextView
+                                val colpe=registro.findViewById<View>(R.id.colpe) as TextView
+                                val colpp=registro.findViewById<View>(R.id.colpp) as TextView
+                                val colpts=registro.findViewById<View>(R.id.colpts) as TextView
+                                val coldif=registro.findViewById<View>(R.id.coldif) as TextView
+                                colEquipo.text=jsonObject.getString("nombre")
+                                colpj.text=jsonObject.getString("pj")
+                                colpg.text=jsonObject.getString("pg")
+                                colpe.text=jsonObject.getString("pe")
+                                colpp.text=jsonObject.getString("pp")
+                                colpts.text=jsonObject.getString("pts")
+                                coldif.text=jsonObject.getString("dif")
+                                tbPosiciones?.addView(registro)
+                            }
+
+
                         }
                     }catch (e: JSONException){
                         e.printStackTrace()

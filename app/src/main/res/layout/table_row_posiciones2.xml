@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:background="@color/black2"
+    android:paddingTop="3sp"
+    android:paddingBottom="3sp">
+
+    <TextView
+        android:id="@+id/colEquipo"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="2dp"
+        android:layout_weight="3"
+        android:text="@string/equipo"
+        android:gravity="start"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/colpj"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="@string/pj"
+        android:gravity="center"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/colpg"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="@string/pg"
+        android:gravity="center"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/colpe"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="@string/pe"
+        android:gravity="center"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/colpp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="@string/pp"
+        android:gravity="center"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/colpts"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="@string/pts"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/coldif"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="2dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/dif"
+        android:textColor="#FFFFFF" />
+</TableRow>

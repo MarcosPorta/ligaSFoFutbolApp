@@ -158,28 +158,6 @@ class PartidosActivity : AppCompatActivity() {
                                 cont2 = diaHora
                             }
 
-                            /*if (fecha != cont && diaHora != cont2 && diaHora != ""){
-                                //println("MIRAR ACA ------------> $diaHora y $cont2")
-                                val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha,null, false)
-                                val registro3 = LayoutInflater.from(this).inflate(R.layout.table_row_calendario,null, false)
-                                val colNumeroFecha=registro2.findViewById<View>(R.id.colNumeroFecha) as TextView
-                                val colDiaHora=registro2.findViewById<View>(R.id.colDiaHora) as TextView
-                                val colCalendario=registro3.findViewById<View>(R.id.colCalendario) as TextView
-                                colNumeroFecha.text=getString(R.string.fecha_para_temp_regular,fecha)
-                                colDiaHora.text=jsonObject.getString("diahora")
-                                colCalendario.text=jsonObject.getString("diahora")
-                                tbFixture?.addView(registro2)
-                                tbFixture?.addView(registro3)
-                                cont += 1
-                                cont2 = diaHora
-                            } else if (diaHora != cont2 && diaHora != ""){
-                                val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha,null, false)
-                                val colDiaHora=registro2.findViewById<View>(R.id.colDiaHora) as TextView
-                                colDiaHora.text=jsonObject.getString("diahora")
-                                tbFixture?.addView(registro2)
-                                cont2 = diaHora
-                            }*/
-
                             //If para alternar diseño filas
                             if(i % 2 == 0){
                                 val registro=LayoutInflater.from(this).inflate(R.layout.table_row_fixture,null,false)
