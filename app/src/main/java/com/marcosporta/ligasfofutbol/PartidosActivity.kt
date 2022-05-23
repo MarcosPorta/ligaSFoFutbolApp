@@ -118,7 +118,7 @@ class PartidosActivity : AppCompatActivity() {
         else if (torneoSeleccionado != "Torneo" && zonaSeleccionada != "Zona" && categoriaSeleccionada != "Categoria"){
 
             var url = "https://marcosporta.site/ligasfcoapp/$zona$categoria$torneo.php"
-            //Toast.makeText(this,"$zona $categoria $torneo",Toast.LENGTH_LONG).show()
+            Toast.makeText(this,"$zona $categoria $torneo",Toast.LENGTH_LONG).show()
 
             tbFixture=findViewById(R.id.tbFixture)
             tbFixture?.removeAllViews()
@@ -138,22 +138,28 @@ class PartidosActivity : AppCompatActivity() {
                             val fecha = jsonObject.getInt("fecha")
                             val diaHora = jsonObject.getString("diahora")
                             val golesLocalBD = jsonObject.getString("goles_l")
-                            //println("MIRAR ACA ------------> $golesLocalBD")
-                            //Mostrar fecha liga (HAY QUE AGREGAR LO DEL TEMA ELIMINATORIAS)
-                            if (fecha != cont){
-                                //println("ENTRE A ESTE IF")
+                            val tipoBD = jsonObject.getString("tipo")
+
+                            //Mostrar fecha liga
+                            if (fecha != cont && tipoBD == "regular"){
+                                //println("MIRAR ACA ------------> $tipoBD")
                                 val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha,null, false)
-                                val colNumeroFecha=registro2.findViewById<View>(R.id.colNumeroFecha) as TextView
-                                colNumeroFecha.text=getString(R.string.fecha_para_temp_regular,fecha)
+                                val filaFecha=registro2.findViewById<View>(R.id.colNumeroFecha) as TextView
+                                filaFecha.text=getString(R.string.fecha_para_temp_regular,fecha)
+                                tbFixture?.addView(registro2)
+                                cont += 1
+                            }else if(fecha != cont && tipoBD == "eliminatoria"){
+                                val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha,null, false)
+                                val filaFecha=registro2.findViewById<View>(R.id.colNumeroFecha) as TextView
+                                filaFecha.text=jsonObject.getString("titulo")
                                 tbFixture?.addView(registro2)
                                 cont += 1
                             }
                             //Mostrar fecha calendario
                             if(diaHora != cont2 && diaHora != "" && golesLocalBD == ""){
-                                println("MIRAR ACA ------------> $golesLocalBD")
                                 val registro3 = LayoutInflater.from(this).inflate(R.layout.table_row_calendario,null, false)
-                                val colCalendario=registro3.findViewById<View>(R.id.colCalendario) as TextView
-                                colCalendario.text=jsonObject.getString("diahora")
+                                val filaCalendario=registro3.findViewById<View>(R.id.colCalendario) as TextView
+                                filaCalendario.text=jsonObject.getString("diahora")
                                 tbFixture?.addView(registro3)
                                 cont2 = diaHora
                             }
