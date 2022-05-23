@@ -159,7 +159,7 @@ class PartidosActivity : AppCompatActivity() {
                             }
 
                             //If para alternar diseño filas
-                            if(i % 2 == 0){
+                            if(i.rem(2) == 0){
                                 val registro=LayoutInflater.from(this).inflate(R.layout.table_row_fixture,null,false)
                                 val colEquipoL=registro.findViewById<View>(R.id.colEquipoL) as TextView
                                 val colGolesL=registro.findViewById<View>(R.id.colGolesL) as TextView
@@ -183,16 +183,6 @@ class PartidosActivity : AppCompatActivity() {
                                 colEquipoV.text=jsonObject.getString("equipo_v")
                                 tbFixture?.addView(registro)
                             }
-
-                            /*val colEquipoL=registro.findViewById<View>(R.id.colEquipoL) as TextView
-                            val colGolesL=registro.findViewById<View>(R.id.colGolesL) as TextView
-                            val colGolesV=registro.findViewById<View>(R.id.colGolesV) as TextView
-                            val colEquipoV=registro.findViewById<View>(R.id.colEquipoV) as TextView
-                            colEquipoL.text=jsonObject.getString("equipo_l")
-                            colGolesL.text=jsonObject.getString("goles_l")
-                            colGolesV.text=jsonObject.getString("goles_v")
-                            colEquipoV.text=jsonObject.getString("equipo_v")
-                            tbFixture?.addView(registro)*/
                         }
                     }catch (e: JSONException){
                         e.printStackTrace()
@@ -202,9 +192,7 @@ class PartidosActivity : AppCompatActivity() {
                 }
             )
             queue.add(jsonObjectRequest)
-
         }
-
     }
 
 }

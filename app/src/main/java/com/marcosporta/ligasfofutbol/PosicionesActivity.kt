@@ -156,7 +156,7 @@ class PosicionesActivity : AppCompatActivity() {
                         for(i in 0 until jsonArray.length() ){
                             val jsonObject=jsonArray.getJSONObject(i)
 
-                            if(i % 2 == 0){
+                            if(i.rem(2) == 0){
                                 val registro= LayoutInflater.from(this).inflate(R.layout.table_row_posiciones,null,false)
                                 val colEquipo=registro.findViewById<View>(R.id.colEquipo) as TextView
                                 val colpj=registro.findViewById<View>(R.id.colpj) as TextView
