@@ -139,10 +139,9 @@ class PartidosActivity : AppCompatActivity() {
                             val diaHora = jsonObject.getString("diahora")
                             val golesLocalBD = jsonObject.getString("goles_l")
                             val tipoBD = jsonObject.getString("tipo")
-
+                            //println("MIRAR ACA 2 ------------> $i $diaHora // $cont2 // $cont // $fecha")
                             //Mostrar fecha liga
                             if (fecha != cont && tipoBD == "regular"){
-                                //println("MIRAR ACA ------------> $tipoBD")
                                 val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha,null, false)
                                 val filaFecha=registro2.findViewById<View>(R.id.colNumeroFecha) as TextView
                                 filaFecha.text=getString(R.string.fecha_para_temp_regular,fecha)
@@ -162,8 +161,9 @@ class PartidosActivity : AppCompatActivity() {
                                 filaCalendario.text=jsonObject.getString("diahora")
                                 tbFixture?.addView(registro3)
                                 cont2 = diaHora
+                            }else if(diaHora == ""){
+                                cont2 = ""
                             }
-
                             //If para alternar diseño filas
                             if(i.rem(2) == 0){
                                 val registro=LayoutInflater.from(this).inflate(R.layout.table_row_fixture,null,false)
