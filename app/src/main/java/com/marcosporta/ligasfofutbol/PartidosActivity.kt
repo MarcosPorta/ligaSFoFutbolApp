@@ -111,7 +111,8 @@ class PartidosActivity : AppCompatActivity() {
     }
 
     private fun consultaPartidos(zona: String, categoria:String, torneo:String) {
-        if (torneoSeleccionado == "Clausura" && zonaSeleccionada != "Zona" &&
+        if (torneoSeleccionado == "Clausura" && zonaSeleccionada == "Sur" &&
+            categoriaSeleccionada != "Primera" && categoriaSeleccionada != "Reserva" &&
             categoriaSeleccionada != "Categoria"){
             Toast.makeText(this,"No hay partidos para:\n$zona $categoria $torneo", Toast.LENGTH_LONG).show()
         }
