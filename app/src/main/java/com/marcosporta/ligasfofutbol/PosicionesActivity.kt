@@ -89,7 +89,7 @@ class PosicionesActivity : AppCompatActivity() {
         AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                 moiSeleccionado = spinnerPos.selectedItem.toString()
-                println("MIRAR ACA ----------> $moiSeleccionado")
+                //println("MIRAR ACA ----------> $moiSeleccionado")
                 //Funcionalidad para mayores o menores
                 seleccionMayoMen(moiSeleccionado)
             }
@@ -136,11 +136,11 @@ class PosicionesActivity : AppCompatActivity() {
     }
 
     private fun consultasPosiciones(zona: String, categoria:String, torneo:String){
-        if (torneoSeleccionado == "Clausura" && zonaSeleccionada != "Zona" &&
+        /*if (torneoSeleccionado == "Clausura" && zonaSeleccionada != "Zona" &&
             categoriaSeleccionada != "Categoria"){
             Toast.makeText(this,"No hay tabla para:\n$zona $categoria $torneo", Toast.LENGTH_LONG).show()
-        }
-        else if (torneoSeleccionado != "Torneo" && zonaSeleccionada != "Zona" && categoriaSeleccionada != "Categoria"){
+        }*/
+        if (torneoSeleccionado != "Torneo" && zonaSeleccionada != "Zona" && categoriaSeleccionada != "Categoria"){
             var url = "https://marcosporta.site/ligasfcoapp/pos$zona$categoria$torneo.php"
             Toast.makeText(this,"$zona $categoria $torneo", Toast.LENGTH_LONG).show()
             tbPosiciones=findViewById(R.id.tbPosiciones)
