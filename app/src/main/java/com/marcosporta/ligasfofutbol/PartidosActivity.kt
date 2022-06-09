@@ -89,7 +89,7 @@ class PartidosActivity : AppCompatActivity() {
         }
             //Torneos
         spinnerTor = findViewById(R.id.sp_torneoPart)
-        val listaTor = resources.getStringArray(R.array.torneos)
+        val listaTor = resources.getStringArray(R.array.torneosMenores)
 
         val adaptadorTor = ArrayAdapter(this,R.layout.spinner_style,listaTor)
         spinnerTor.adapter = adaptadorTor

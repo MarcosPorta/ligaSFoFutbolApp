@@ -65,12 +65,8 @@ class PosicionesActivity : AppCompatActivity() {
         //Categoria mayores/inferiores
         spinnerCat = findViewById(R.id.sp_categoriaPos)
 
-        //Torneo
+        //Torneo mayores/inferiores
         spinnerTor = findViewById(R.id.sp_torneoPos)
-        val listaTor = resources.getStringArray(R.array.torneos)
-
-        val adaptadorTor = ArrayAdapter(this,R.layout.spinner_style,listaTor)
-        spinnerTor.adapter = adaptadorTor
 
         //Funcionalidad a los spinners
         spinnerZona.onItemSelectedListener = object:
@@ -122,25 +118,33 @@ class PosicionesActivity : AppCompatActivity() {
 
     private fun seleccionMayoMen(moiSeleccionado: String) {
         spinnerCat = findViewById(R.id.sp_categoriaPos)
+        spinnerTor = findViewById(R.id.sp_torneoPos)
         var listaCategorias = resources.getStringArray(R.array.categoriasMayores)
+        var listaTorneos = resources.getStringArray(R.array.torneosMayores)
         var adaptadorCat = ArrayAdapter(this,R.layout.spinner_style,listaCategorias)
+        var adaptadorTor = ArrayAdapter(this,R.layout.spinner_style,listaTorneos)
 
         if (moiSeleccionado == "Mayores"){
             spinnerCat.adapter = adaptadorCat
+            spinnerTor.adapter = adaptadorTor
         }
         else if (moiSeleccionado == "Inferiores"){
             listaCategorias = resources.getStringArray(R.array.categoriasInferiores)
+            listaTorneos = resources.getStringArray(R.array.torneosMenores)
             adaptadorCat = ArrayAdapter(this,R.layout.spinner_style,listaCategorias)
+            adaptadorTor = ArrayAdapter(this,R.layout.spinner_style,listaTorneos)
             spinnerCat.adapter = adaptadorCat
+            spinnerTor.adapter = adaptadorTor
         }
     }
 
     private fun consultasPosiciones(zona: String, categoria:String, torneo:String){
-        /*if (torneoSeleccionado == "Clausura" && zonaSeleccionada != "Zona" &&
+        if (torneoSeleccionado == "Clausura" && zonaSeleccionada == "Sur" &&
+            categoriaSeleccionada != "Primera" && categoriaSeleccionada != "Reserva" &&
             categoriaSeleccionada != "Categoria"){
             Toast.makeText(this,"No hay tabla para:\n$zona $categoria $torneo", Toast.LENGTH_LONG).show()
-        }*/
-        if (torneoSeleccionado != "Torneo" && zonaSeleccionada != "Zona" && categoriaSeleccionada != "Categoria"){
+        }
+        else if (torneoSeleccionado != "Torneo" && zonaSeleccionada != "Zona" && categoriaSeleccionada != "Categoria"){
             var url = "https://marcosporta.site/ligasfcoapp/pos$zona$categoria$torneo.php"
             Toast.makeText(this,"$zona $categoria $torneo", Toast.LENGTH_LONG).show()
             tbPosiciones=findViewById(R.id.tbPosiciones)

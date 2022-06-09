@@ -57,10 +57,16 @@
         <item>Centro</item>
     </string-array>
 
-    <string-array name="torneos">
+    <string-array name="torneosMayores">
         <item>Torneo</item>
         <item>Apertura</item>
         <item>Clausura</item>
         <item>General</item>
+    </string-array>
+
+    <string-array name="torneosMenores">
+        <item>Torneo</item>
+        <item>Apertura</item>
+        <item>Clausura</item>
     </string-array>
 </resources>
