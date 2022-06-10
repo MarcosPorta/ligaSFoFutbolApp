@@ -9,7 +9,7 @@
         <entry key="..\:/Users/marco_jhzrsd/AndroidStudioProjects/ligaSfoFutbol/app/src/main/res/layout-v21/activity_partidos.xml" value="0.18958333333333333" />
         <entry key="..\:/Users/marco_jhzrsd/AndroidStudioProjects/ligaSfoFutbol/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/marco_jhzrsd/AndroidStudioProjects/ligaSfoFutbol/app/src/main/res/layout/activity_partidos.xml" value="0.33" />
-        <entry key="..\:/Users/marco_jhzrsd/AndroidStudioProjects/ligaSfoFutbol/app/src/main/res/layout/activity_posiciones.xml" value="0.33" />
+        <entry key="..\:/Users/marco_jhzrsd/AndroidStudioProjects/ligaSfoFutbol/app/src/main/res/layout/activity_posiciones.xml" value="0.5" />
         <entry key="..\:/Users/marco_jhzrsd/AndroidStudioProjects/ligaSfoFutbol/app/src/main/res/layout/activity_posiciones_inf.xml" value="0.1" />
         <entry key="..\:/Users/marco_jhzrsd/AndroidStudioProjects/ligaSfoFutbol/app/src/main/res/layout/spinner_style.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/marco_jhzrsd/AndroidStudioProjects/ligaSfoFutbol/app/src/main/res/layout/table_row_calendario.xml" value="0.365625" />
@@ -19,6 +19,7 @@
         <entry key="..\:/Users/marco_jhzrsd/AndroidStudioProjects/ligaSfoFutbol/app/src/main/res/layout/table_row_fixture2.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/marco_jhzrsd/AndroidStudioProjects/ligaSfoFutbol/app/src/main/res/layout/table_row_posiciones.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/marco_jhzrsd/AndroidStudioProjects/ligaSfoFutbol/app/src/main/res/layout/table_row_posiciones2.xml" value="0.15648148148148147" />
+        <entry key="..\:/Users/marco_jhzrsd/AndroidStudioProjects/ligaSfoFutbol/app/src/main/res/layout/text_no_presenta.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/marco_jhzrsd/AndroidStudioProjects/ligaSfoFutbol/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.282" />
         <entry key="..\:/Users/marco_jhzrsd/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.36666666666666664" />
       </map>

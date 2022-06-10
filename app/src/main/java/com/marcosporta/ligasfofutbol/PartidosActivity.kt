@@ -140,7 +140,7 @@ class PartidosActivity : AppCompatActivity() {
                             val diaHora = jsonObject.getString("diahora")
                             val golesLocalBD = jsonObject.getString("goles_l")
                             val tipoBD = jsonObject.getString("tipo")
-                            println("MIRAR ACA 2 ------------> $i $diaHora // $cont2 // $cont // $fecha")
+                            //println("MIRAR ACA ------------> $i $diaHora // $cont2 // $cont // $fecha")
                             //Mostrar fecha liga
                             if (fecha != cont && tipoBD == "regular"){
                                 val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha,null, false)

@@ -69,8 +69,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/bannerPartidos"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/filaEncabezadoFix" />
+            app:layout_constraintStart_toStartOf="parent" />
+
     </ScrollView>
     <!-- de la app: ca-app-pub-2807876859130041/5468222593 -->
     <!-- de prueba: ca-app-pub-3940256099942544/6300978111 -->
