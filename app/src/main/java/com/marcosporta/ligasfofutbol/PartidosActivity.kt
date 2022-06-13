@@ -148,12 +148,16 @@ class PartidosActivity : AppCompatActivity() {
                                 filaFecha.text=getString(R.string.fecha_para_temp_regular,fecha)
                                 tbFixture?.addView(registro2)
                                 cont += 1
+                                //Para imprimir fecha calendario igual en fechas distintas
+                                cont2 = ""
                             }else if(fecha != cont && tipoBD == "eliminatoria"){
                                 val registro2 = LayoutInflater.from(this).inflate(R.layout.table_row_fecha,null, false)
                                 val filaFecha=registro2.findViewById<View>(R.id.colNumeroFecha) as TextView
                                 filaFecha.text=jsonObject.getString("titulo")
                                 tbFixture?.addView(registro2)
                                 cont += 1
+                                //Para imprimir fecha calendario igual en fechas distintas
+                                cont2 = ""
                             }
                             //Mostrar fecha calendario
                             if(diaHora != cont2 && diaHora != "" && golesLocalBD == ""){
