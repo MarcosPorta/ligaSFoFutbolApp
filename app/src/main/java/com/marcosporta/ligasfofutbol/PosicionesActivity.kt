@@ -194,6 +194,28 @@ class PosicionesActivity : AppCompatActivity() {
                                 coldif.text=jsonObject.getString("dif")
                                 tbPosiciones?.addView(registro)
                             }
+                            if(i==jsonArray.length()-1){
+                                //Imprimir msn equipos no presentan.
+                                if (torneoSeleccionado != "Torneo" && zonaSeleccionada == "Oeste" && categoriaSeleccionada == "General"){
+                                    val np_text= "Rivadavia-Juvenil.\nNo presenta, +3 a sus rivales."
+                                    val registro_np = LayoutInflater.from(this).inflate(R.layout.text_no_presenta,null,false)
+                                    val cuadro=registro_np.findViewById<View>(R.id.texto_no_presenta) as TextView
+                                    cuadro.text= np_text
+                                    tbPosiciones?.addView(registro_np)
+                                } else if (torneoSeleccionado != "Torneo" && zonaSeleccionada == "Noroeste" && categoriaSeleccionada == "General"){
+                                    val np_text= "Cult La Paquita-Juvenil.\nNo presenta, +3 a sus rivales."
+                                    val registro_np = LayoutInflater.from(this).inflate(R.layout.text_no_presenta,null,false)
+                                    val cuadro=registro_np.findViewById<View>(R.id.texto_no_presenta) as TextView
+                                    cuadro.text= np_text
+                                    tbPosiciones?.addView(registro_np)
+                                } else if (torneoSeleccionado != "Torneo" && zonaSeleccionada == "Centro" && categoriaSeleccionada == "General"){
+                                    val np_text= "8 de Dic-juvenil y Antártida-promocional.\nNo presentan, +3 a sus rivales."
+                                    val registro_np = LayoutInflater.from(this).inflate(R.layout.text_no_presenta,null,false)
+                                    val cuadro=registro_np.findViewById<View>(R.id.texto_no_presenta) as TextView
+                                    cuadro.text= np_text
+                                    tbPosiciones?.addView(registro_np)
+                                }
+                            }
                         }
                     }catch (e: JSONException){
                         e.printStackTrace()
@@ -203,26 +225,6 @@ class PosicionesActivity : AppCompatActivity() {
                 }
             )
             queue.add(jsonObjectRequest)
-        }
-        //Imprimir msn equipos no presentan.
-        if (torneoSeleccionado != "Torneo" && zonaSeleccionada == "Oeste" && categoriaSeleccionada == "General"){
-            val np_text= "Rivadavia-Juvenil.\nNo presenta, +3 a sus rivales."
-            val registro_np = LayoutInflater.from(this).inflate(R.layout.text_no_presenta,null,false)
-            val cuadro=registro_np.findViewById<View>(R.id.texto_no_presenta) as TextView
-            cuadro.text= np_text
-            tbPosiciones?.addView(registro_np)
-        } else if (torneoSeleccionado != "Torneo" && zonaSeleccionada == "Noroeste" && categoriaSeleccionada == "General"){
-            val np_text= "Cult La Paquita-Juvenil.\nNo presenta, +3 a sus rivales."
-            val registro_np = LayoutInflater.from(this).inflate(R.layout.text_no_presenta,null,false)
-            val cuadro=registro_np.findViewById<View>(R.id.texto_no_presenta) as TextView
-            cuadro.text= np_text
-            tbPosiciones?.addView(registro_np)
-        } else if (torneoSeleccionado != "Torneo" && zonaSeleccionada == "Centro" && categoriaSeleccionada == "General"){
-            val np_text= "8 de Dic-juvenil y Antártida-promocional.\nNo presentan, +3 a sus rivales."
-            val registro_np = LayoutInflater.from(this).inflate(R.layout.text_no_presenta,null,false)
-            val cuadro=registro_np.findViewById<View>(R.id.texto_no_presenta) as TextView
-            cuadro.text= np_text
-            tbPosiciones?.addView(registro_np)
         }
     }
 }
