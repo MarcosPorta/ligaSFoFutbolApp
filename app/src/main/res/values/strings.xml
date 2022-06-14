@@ -57,6 +57,16 @@
         <item>Centro</item>
     </string-array>
 
+    <string-array name="zonasCampeones">
+        <item>Zona</item>
+        <item>Norte</item>
+        <item>Noroeste</item>
+        <item>Sur</item>
+        <item>Oeste</item>
+        <item>Centro</item>
+        <item>Absoluto</item>
+    </string-array>
+
     <string-array name="torneosMayores">
         <item>Torneo</item>
         <item>Apertura</item>

@@ -19,4 +19,8 @@ class MainActivity : AppCompatActivity() {
         val intent= Intent(this,PosicionesActivity::class.java)
         startActivity(intent)
     }
+    fun clickCampeones(view: View){
+        val intent= Intent(this,CampeonesActivity::class.java)
+        startActivity(intent)
+    }
 }
