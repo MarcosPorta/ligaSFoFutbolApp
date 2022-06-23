@@ -94,8 +94,22 @@ class CampeonesActivity : AppCompatActivity() {
                 { response ->
                     try {
                         val jsonArray = response.getJSONArray("data")
+                        var mayoinfL = ""
                         for(i in 0 until jsonArray.length() ) {
                             val jsonObject = jsonArray.getJSONObject(i)
+
+                            //Accediendo a valores de la BD
+                            val mayoinfBD = jsonObject.getString("mayoinf")
+                            println("MIRAR ACA ------------> $i $mayoinfBD // ")
+
+                            if (mayoinfBD != mayoinfL){
+                                println("MIRAR ACA ---> ENTRE ACA")
+                                val registromoi=LayoutInflater.from(this).inflate(R.layout.text_mayinf,null,false)
+                                val moi=registromoi.findViewById<View>(R.id.tituloMoi) as TextView
+                                moi.text=jsonObject.getString("mayoinf")
+                                tbCampeones?.addView(registromoi)
+                                mayoinfL = mayoinfBD
+                            }
                             val registro=LayoutInflater.from(this).inflate(R.layout.text_titulo,null,false)
                             val registro2=LayoutInflater.from(this).inflate(R.layout.table_row_campeones,null,false)
                             val tituloCamp=registro.findViewById<View>(R.id.tituloCamp) as TextView

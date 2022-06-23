@@ -25,6 +25,8 @@
         <entry key="..\:/Users/marco_jhzrsd/AndroidStudioProjects/ligaSfoFutbol/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.282" />
         <entry key="..\:/Users/marco_jhzrsd/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.36666666666666664" />
         <entry key="app/src/main/res/layout/activity_campeones.xml" value="0.17028985507246377" />
+        <entry key="app/src/main/res/layout/table_row_calendario.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/table_row_fecha.xml" value="0.17291666666666666" />
         <entry key="app/src/main/res/layout/text_mayinf.xml" value="0.171875" />
       </map>
     </option>
