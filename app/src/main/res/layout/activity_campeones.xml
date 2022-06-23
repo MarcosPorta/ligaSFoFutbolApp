@@ -7,41 +7,40 @@
     android:background="@color/black"
     tools:context=".CampeonesActivity">
 
-    <TableRow
-        android:id="@+id/trCamp"
+    <!--   <TableRow
+           android:id="@+id/trCamp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           android:gravity="center"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent">-->
+
+    <Spinner
+        android:id="@+id/sp_camp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
+        android:layout_height="56dp"
+        android:layout_marginTop="5dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/style_spinner1"
+        android:spinnerMode="dropdown"
+        android:popupBackground="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"  />
 
-        <Spinner
-            android:id="@+id/sp_camp_1"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/style_spinner1"
-            android:spinnerMode="dropdown"
-            android:popupBackground="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Spinner
-            android:id="@+id/sp_camp_2"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/style_spinner1"
-            android:spinnerMode="dropdown"
-            android:popupBackground="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </TableRow>
+    <!--        <Spinner
+                android:id="@+id/sp_camp_2"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/style_spinner1"
+                android:spinnerMode="dropdown"
+                android:popupBackground="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />-->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -49,7 +48,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bannerCampeones"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trCamp">
+        app:layout_constraintTop_toBottomOf="@+id/sp_camp">
 
         <TableLayout
             android:id="@+id/tbCampeones"

@@ -21,10 +21,10 @@ class CampeonesActivity : AppCompatActivity() {
     val testId= Arrays.asList("572A1A67BA6623DBD9D945D4043174CB")
     val configuracion= RequestConfiguration.Builder().setTestDeviceIds(testId).build()
     var tbCampeones: TableLayout?=null
-    lateinit var spinnerCampeones1: Spinner
-    lateinit var spinnerCampeones2: Spinner
+    lateinit var spinnerCampeones: Spinner
+    //lateinit var spinnerCampeones2: Spinner
     var zonaSeleccionada:String = "Zona"
-    var moiSeleccionada:String = "Mayores"
+    //var moiSeleccionada:String = "Mayores"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,29 +44,29 @@ class CampeonesActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         //Spinner
-        spinnerCampeones1 = findViewById(R.id.sp_camp_1)
+        spinnerCampeones = findViewById(R.id.sp_camp)
         val listaCamp1 = resources.getStringArray(R.array.zonasCampeones)
         val adaptadorCamp1 = ArrayAdapter(this,R.layout.spinner_style,listaCamp1)
-        spinnerCampeones1.adapter = adaptadorCamp1
+        spinnerCampeones.adapter = adaptadorCamp1
 
-        spinnerCampeones2 = findViewById(R.id.sp_camp_2)
+        /*spinnerCampeones2 = findViewById(R.id.sp_camp_2)
         val listaCamp2 = resources.getStringArray(R.array.mayinf)
         val adaptadorCamp2 = ArrayAdapter(this,R.layout.spinner_style,listaCamp2)
-        spinnerCampeones2.adapter = adaptadorCamp2
+        spinnerCampeones2.adapter = adaptadorCamp2*/
 
         //Funcionalidad a los spinners
-        spinnerCampeones1.onItemSelectedListener = object:
+        spinnerCampeones.onItemSelectedListener = object:
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                zonaSeleccionada = spinnerCampeones1.selectedItem.toString()
-                cunsultasCampeones(zonaSeleccionada,moiSeleccionada)
+                zonaSeleccionada = spinnerCampeones.selectedItem.toString()
+                cunsultasCampeones(zonaSeleccionada)
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
-            }
+        }
 
-        spinnerCampeones2.onItemSelectedListener = object:
+        /*spinnerCampeones2.onItemSelectedListener = object:
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 moiSeleccionada = spinnerCampeones2.selectedItem.toString()
@@ -75,13 +75,13 @@ class CampeonesActivity : AppCompatActivity() {
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
-        }
+        }*/
     }
 
-    private fun cunsultasCampeones(zona: String, categoria:String){
+    private fun cunsultasCampeones(zona: String){
         //Ver los casos
         if (zonaSeleccionada!="Zona"){
-            var url = "https://marcosporta.site/ligasfcoapp/camp$zona$categoria.php"
+            val url = "https://marcosporta.site/ligasfcoapp/camp$zona.php"
             Toast.makeText(this,url, Toast.LENGTH_LONG).show()
 
             tbCampeones=findViewById(R.id.tbCampeones)
